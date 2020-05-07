@@ -12,19 +12,50 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'stock-theme-shuvo' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'stock-theme-shuvo' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'stock-theme-shuvo' ), 'stock-theme-shuvo', '<a href="http://shuvoislam.com">Shuvo Islam</a>' );
-				?>
-		</div><!-- .site-info -->
+
+		<div class="container">
+			<?php if( is_active_sidebar ('stock_footer')) : ?>
+			<div class="row">
+				<div class="col-md-12">
+					<?php dynamic_sidebar('stock_footer'); ?>
+				</div>
+			</div>
+			<?php endif; ?>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="stock-footer-bottom">
+						<div class="row">
+
+							<div class="col-md-4">
+								<?php esc_html_e('Copyright © 2017 FairDealLab - All Rights Reserved', 'stock-theme-shuvo'); ?>
+							</div>
+
+							<div class="col-md-4">
+								<?php
+								wp_nav_menu(
+									array(
+										'theme_location' => 'footer-menu',
+									)
+								);
+								?>
+							</div>
+
+							<div class="col-md-4">
+								<div class="social-icons">
+									<a href=""><i class="fa fa-facebook"></i></a>
+									<a href=""><i class="fa fa-linkedin"></i></a>
+									<a href=""><i class="fa fa-google"></i></a>
+									<a href=""><i class="fa fa-pinterest"></i></a>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
